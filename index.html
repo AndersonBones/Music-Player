@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Player</title>
+
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai&family=Montserrat:wght@300&family=Poiret+One&display=swap" rel="stylesheet">
+
+        <script src="./script.js" defer></script>
+    
+    </head>
+    <body>
+        <div class="container">
+            <div class="music-player-container">
+                <audio>
+                    <source src="./Musics/5 Minutes Alone.mp3" type="audio/mp3">
+                </audio>
+                
+                <div class="volume-container">
+                    <div id="volume-button" style="background-color: transparent; border: none;"><i class="bi bi-volume-down-fill" ></i></div>
+                    <input ontouchstart="Volume()" onclick="Volume()" id="volume-controler" type="range" min="0" max="100" value="5">
+                </div>
+
+                <div class="icon-music"><i style="color: white;" class="bi bi-music-note"></i></div>
+
+                <div class="info-music" style="text-align: center;">
+                    <h3 id="artist" style="font-family: 'Hind Madurai'; color: white;" >Artist</h3>
+                    <p id="title-music" style="font-family: 'Hind Madurai'; color: white;" >Title</p>
+                </div>
+                <div class="time-music">
+                    <input id="timing" ontouchstart="SetTiming()"onclick="SetTiming()" type="range" min="0" value="0">
+                </div>
+    
+                <div class="controls">
+                    <button onclick="BackMusic()" class="anterior"><i class="bi bi-skip-backward-fill"></i></button>
+                    <button onclick="PlayMusic()" class="play-button"><i class="bi bi-play-fill"></i></button>
+                    <button onclick="NextMusic()" class="proxima"><i class="bi bi-skip-forward-fill"></i></button>
+                    
+                </div>
+            </div>
+
+            <footer>
+                <p>Copyright ©2022 All rights reserved | by <a href="https://github.com/AndersonBones" target="_blank">AndersonBones</a></p>
+            </footer>
+        </div>
+        
+        
+        
+    </body>
+</html>
+
+
