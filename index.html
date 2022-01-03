@@ -34,11 +34,15 @@
                 </div>
                 <div class="time-music">
                     <input id="timing" ontouchend="SetTiming()"onclick="SetTiming()" type="range" min="0" value="0">
+                    <div id="currentTime-container">
+                        <p id="current-time-value">0:00</p>
+                        <p id="duration-value">0:00</p>
+                    </div>
                 </div>
     
                 <div class="controls">
                     <button onclick="BackMusic()" class="anterior"><i class="bi bi-skip-backward-fill"></i></button>
-                    <button onclick="PlayMusic()" class="play-button"><i class="bi bi-play-fill"></i></button>
+                    <button ontouchend='active(this)' onclick="PlayMusic()" class="play-button"><i class="bi bi-play-fill"></i></button>
                     <button onclick="NextMusic()" class="proxima"><i class="bi bi-skip-forward-fill"></i></button>
                     
                 </div>
