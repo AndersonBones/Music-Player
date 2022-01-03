@@ -1,4 +1,4 @@
-# Music-Player (Desktop Version)
+# Music-Player 
 
 
-<a href="https://andersonbones.github.io/Music-Player-Desktop/">Demo</a>
+<a href="https://andersonbones.github.io/Music-Player/">Demo</a>
