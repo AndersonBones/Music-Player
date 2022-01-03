@@ -22,6 +22,9 @@ var artist = document.getElementById("artist");
 var titleMusic = document.getElementById("title-music");
 let indexMusic = 0;
 
+var current_Time_value = document.getElementById("current-time-value");
+var duration_value = document.getElementById("duration-value");
+
 var AudioTracks = {
     src:['./Musics/5 Minutes Alone.mp3','./Musics/Black Is The Soul.mp3', './Musics/Blind.mp3',
     './Musics/Du Hast.mp3','./Musics/Falling Away from Me.mp3', './Musics/Feel Invincible.mp3', './Musics/Indestructible.mp3',
@@ -41,8 +44,6 @@ mp3.onloadeddata = function(){
     timingMusic.setAttribute('max',DurationMusic); /* configura o atributo 'max' com o valor de duração da musica atual */
 }
 
-
-
 function changePlayIcon(){ /* modifica os icones play e pause */
     play_icon.classList.toggle('bi-play-fill');
     play_icon.classList.toggle('bi-pause-fill');
@@ -53,21 +54,22 @@ function changeAttribute(element,attribute, value){ /* modifica um atributo de u
 }
 
 function UpdateInfoMusic(){ /* atualiza as informações da música atual */
-    if(AudioTracks.title[indexMusic].length > 20 || AudioTracks.artist[indexMusic].length > 20){
-        titleMusic.style.fontSize = '12px';
-        artist.style.fontSize = '15px';
+    
+    if(AudioTracks.title[indexMusic].length > 20 || AudioTracks.artist[indexMusic].length > 20){  
+        artist.style.fontSize = '17px';
+        titleMusic.style.fontSize = '15px';
 
         artist.innerText = AudioTracks.artist[indexMusic];
         titleMusic.innerText = AudioTracks.title[indexMusic];
     }
     else{
-        titleMusic.style.fontSize = '15px';
-        artist.style.fontSize = '18px';
+        titleMusic.style.fontSize = '18px';
+        artist.style.fontSize = '20px';
         
         artist.innerText = AudioTracks.artist[indexMusic];
         titleMusic.innerText = AudioTracks.title[indexMusic];
     }
-   
+
     
 }
 
@@ -82,7 +84,12 @@ function PlayMusic(){ /* configura a inicialização da musica */
 
 setInterval(() => { /* a cada 1 segundo incrementa o value do timinigMusic com a posição atual da musica */
     timingMusic.value = Math.round(mp3.currentTime);
-        
+    current_Time_value.innerText = formatSecondsAsTime(Math.round(mp3.currentTime));
+    duration_value.innerText = formatSecondsAsTime(Math.round(mp3.duration));
+
+    if(formatSecondsAsTime(Math.round(mp3.currentTime)) == formatSecondsAsTime(Math.round(mp3.duration))){
+        NextMusic();
+    }
 },1000);
 
 
@@ -142,7 +149,6 @@ function BackMusic(){ /* alterana para a musica anterior */
 
 function SetTiming(){
     mp3.currentTime = timingMusic.value;
-
     if(mp3.paused == false){
         mp3.play();
 
@@ -171,3 +177,19 @@ function Volume(){
     }
 
 }
+
+
+function formatSecondsAsTime(secs, format) { /* configura o time da musica */
+    var hr  = Math.floor(secs / 3600);
+    var min = Math.floor((secs - (hr * 3600))/60);
+    var sec = Math.floor(secs - (hr * 3600) -  (min * 60));
+  
+    if (min < 10){ 
+      min = "0" + min; 
+    }
+    if (sec < 10){ 
+      sec  = "0" + sec;
+    }
+  
+    return min + ':' + sec;
+  }
