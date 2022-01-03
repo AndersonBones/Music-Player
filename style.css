@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .container{
     width: 100%;
     height: 100vh;
@@ -19,29 +23,27 @@
 }
 
 .music-player-container{
-    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: radial-gradient( circle farthest-corner at 24.1% 68.8%,  rgba(50,50,50,1) 0%, rgba(0,0,0,1) 99.4% );
-    width: 250px;
-    height: 400px;
+    width: 300px;
+    height: 500px;
 
     border-radius: 1rem;
+    border: 2px solid rgb(0, 0, 0);
     gap: 15px;
     flex-direction: column;
     
     box-shadow: 0 10px 10px -5px;
-
 }
 
 .volume-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    align-self: flex-start;
-    margin-left: 25px;
-    max-width: 25px;
+    margin: 0 auto;
+    width: 70%;
 }
 
 
@@ -51,11 +53,8 @@
     appearance: none;
     visibility: hidden;
     opacity: 0;
-    width: 150px;
+    width: 77%;
     height: 0.3em;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .volume-container:hover #volume-controler{
@@ -72,15 +71,15 @@
 
 #volume-controler::-webkit-slider-thumb{
     -webkit-appearance: none;
-    width: 12px;
-    height: 12px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     background: #5c5c5c;
     box-shadow: 0 0 7px 0.1rem;
 }
 
 #volume-button i{
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #817f7f;
 }
 
@@ -95,20 +94,26 @@
 }
 
 .icon-music{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 1rem;
     border: 2px solid rgb(59, 59, 59);
     
     display: flex;
     align-items: center;
     justify-content: center;
-
     box-shadow: black 5px 5px 15px;
+
+    
 }
 
 .icon-music i{
-    font-size: 5rem;
+    font-size: 6rem;
+    text-transform: uppercase;
+	background: linear-gradient(to right, #07f1b7, #ec0db4);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	fontfamily: 'Poppins', sans-serif;
 }
 
 input[type='range']{
@@ -124,15 +129,25 @@ input[type='range']{
 }
 
 #timing{
-    width: 180px;
+    width: 200px;
 }
 #timing::-webkit-slider-thumb{
     -webkit-appearance: none;
-    width: 11px;
-    height: 11px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     background: #dddcdc;
     box-shadow: 0 0 7px 0.1rem;
+}
+
+#currentTime-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+#currentTime-container p{
+    font-size: 11px;
+    color: #a0a0a0;
 }
 
 .controls{
@@ -166,17 +181,22 @@ button i{
 
 
 .play-button, .pause{
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
 }
 
 .proxima, .anterior{
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
+}
+
+.proxima i, .anterior i{
+    font-size: 1rem;
+    
 }
 
 .play-button > i, .pause-button > i{
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .info-music{
@@ -189,14 +209,15 @@ button i{
 }
 
 .info-music h3{
-   
     letter-spacing: 2px;
+    
 }
+
 
 
 footer p{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 footer a{
@@ -216,83 +237,3 @@ footer a:not(hover){
 
 
 
-/* RESPONSIVIDADE */
-
-
-/*@media only screen and (max-width: 500px) {
-    .music-player-container{
-        width: 99%;
-        height: 750px;
-    }
-
-    .icon-music{
-        width: 300px;
-        height: 300px;
-    }
-
-    .icon-music i{
-        font-size: 8rem;
-    }
-
-    #volume-controler{
-        width:300px;
-        height: 0.4rem;
-    }
-
-    #volume-button i{
-
-        font-size: 2.5rem;
-    }
-
-    #volume-controler::-webkit-slider-thumb{
-        width: 20px;
-        height: 20px;
-    }
-
-    .volume-container{
-        max-width: 50px;
-        margin-left: 40px;
-
-    }
-
-    .music-player-container{
-        gap: 30px;
-    }
-
-    .info-music h3{
-        font-size: 2.4rem;
-        letter-spacing: 5px;
-    }
-
-
-    .info-music p{
-        font-size: 1.8rem;
-    }
-
-    #timing{
-        width: 350px;
-        height: 0.4rem;
-    }
-
-    #timing::-webkit-slider-thumb{
-        width: 20px;
-        height: 20px;
-    }
-
-    .play-button, .pause{
-        width: 80px;
-        height: 80px;
-    }
-
-    .play-button > i, .pause-button > i{
-        font-size: 3.3rem;
-    }
-    .proxima, .anterior{
-        width: 50px;
-        height: 50px;
-    }
-
-    .proxima > i, .anterior >i{
-        font-size: 1.3rem;
-    }
-}*/
