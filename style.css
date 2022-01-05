@@ -113,7 +113,7 @@ body{
 	background: linear-gradient(to right, #07f1b7, #ec0db4);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	fontfamily: 'Poppins', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 input[type='range']{
