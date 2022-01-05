@@ -40,6 +40,8 @@ var AudioTracks = {
 UpdateInfoMusic();
 
 mp3.onloadeddata = function(){ 
+    formatSecondsAsTime(Math.round(mp3.currentTime));
+    formatSecondsAsTime(Math.round(mp3.duration));
     DurationMusic = Math.round(mp3.duration); /* Armazena a duração da musica atual*/
     timingMusic.setAttribute('max',DurationMusic); /* configura o atributo 'max' com o valor de duração da musica atual */
 }
