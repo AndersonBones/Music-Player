@@ -1,47 +1,109 @@
-
-/* Só é possível adicionar novas musicas manualmente, modificando o objeto 'AudioTracks' */
-/* Para adicionar novas musicas: */
-
-/* #1 Adicione o caminho da nova música na propriedade 'src' do objeto AudioTracks (ela deve estar na pasta 'Musics') */
-/* #2 Adicione o titulo da nova música na propriedade 'title' do objeto AudioTracks */
-/* #3 Adicione o nome do artista da nova música na propriedade 'artist' do objeto AudioTracks */
-
-/* os valores das propriedades src, title e artist devem estar em ordem com a música */
-
-
-
 var mp3 = document.getElementsByTagName("audio")[0];
+
 var play_icon = document.getElementsByClassName('bi bi-play-fill')[0];
 var volume_icon = document.getElementsByClassName("bi bi-volume-down-fill")[0];
+
 var play_button = document.getElementsByClassName("play-button")[0];
 var timingMusic = document.getElementById("timing");
 var DurationMusic = 0;
+let indexMusic = 0;
+
 var srcMusic = document.getElementsByTagName('source')[0];
 var volume_controler = document.getElementById("volume-controler");
+
 var artist = document.getElementById("artist");
 var titleMusic = document.getElementById("title-music");
-let indexMusic = 0;
 
 var current_Time_value = document.getElementById("current-time-value");
 var duration_value = document.getElementById("duration-value");
 
-var AudioTracks = {
-    src:['./Musics/5 Minutes Alone.mp3','./Musics/Black Is The Soul.mp3', './Musics/Blind.mp3',
-    './Musics/Du Hast.mp3','./Musics/Falling Away from Me.mp3', './Musics/Feel Invincible.mp3', './Musics/Indestructible.mp3',
-    "./Musics/Refuse Resist.mp3", './Musics/Summer.mp3','./Musics/Symphonia.mp3','./Musics/Under Control.mp3',
-    './Musics/Vermilion Pt. 2.mp3', './Musics/Whistle.mp3'],
-    
-    title:['5 Minutes Alone','Black Is The Soul','Blind','Du Hast','Falling Away from Me','Feel Invicible', 'Indestructible',
-    'Refuse / Resist', 'Summer','Symphonia','Under Control (feat. Hurts)','Vermilion, Pt 2','Whistle'],
 
-    artist:['Pantera','KoRn','KoRn','Rammstein','KoRn','Skillet', 'Disturbed','Sepultura', 'Calvin Harris', 'Alok','Calvin Harris & Alesso','Slipknot', 'Flo Rida'],
-}
+var musics = [
+    {
+        src:'./Musics/5 Minutes Alone.mp3',
+        title:'5 Minutes Alone',
+        artist:'Pantera'
+    },
+
+    {
+        src:'./Musics/Black Is The Soul.mp3',
+        title:'Black Is The Soul',
+        artist:'KoRn'
+    },
+
+    {
+        src:'./Musics/Blind.mp3',
+        title:'Blind',
+        artist:'KoRn'
+    },
+
+    {
+        src:'./Musics/Du Hast.mp3',
+        title:'Du Hast',
+        artist:'Rammstein'
+    },
+
+    {
+        src:'./Musics/Falling Away from Me.mp3',
+        title:'Falling Away from Me',
+        artist:'KoRn'
+    },
+
+    {
+        src:'./Musics/Feel Invincible.mp3',
+        title:'Feel Invicible',
+        artist:'Skillet'
+    },
+
+    {
+        src:'./Musics/Indestructible.mp3',
+        title:'Indestructible.mp3',
+        artist:'Disturbed'
+    },
+
+    {
+        src:'./Musics/Refuse Resist.mp3',
+        title:'Refuse Resist.mp3',
+        artist:'Sepultura'
+    },
+
+    {
+        src:'./Musics/Summer.mp3',
+        title:'Summer',
+        artist:'Calvin Harris'
+    },
+
+    {
+        src:'./Musics/Symphonia.mp3',
+        title:'Symphonia',
+        artist:'Alok'
+    },
+
+    {
+        src:'./Musics/Under Control.mp3',
+        title:'Under Control (feat. Hurts)',
+        artist:'Calvin Harris & Alesso'
+    },
+
+    {
+        src:'./Musics/Vermilion Pt. 2.mp3',
+        title:'Vermilion Pt. 2',
+        artist:'Slipknot'
+    },
+
+    {
+        src:'./Musics/Whistle.mp3',
+        title:'Whistle',
+        artist:'Flo Rida'
+    },
+
+];
+
+
 
 UpdateInfoMusic();
 
 mp3.onloadeddata = function(){ 
-    formatSecondsAsTime(Math.round(mp3.currentTime));
-    formatSecondsAsTime(Math.round(mp3.duration));
     DurationMusic = Math.round(mp3.duration); /* Armazena a duração da musica atual*/
     timingMusic.setAttribute('max',DurationMusic); /* configura o atributo 'max' com o valor de duração da musica atual */
 }
@@ -57,22 +119,20 @@ function changeAttribute(element,attribute, value){ /* modifica um atributo de u
 
 function UpdateInfoMusic(){ /* atualiza as informações da música atual */
     
-    if(AudioTracks.title[indexMusic].length > 20 || AudioTracks.artist[indexMusic].length > 20){  
+    if(musics[indexMusic].title.length > 20 || musics[indexMusic].artist.length > 20){  
         artist.style.fontSize = '17px';
         titleMusic.style.fontSize = '15px';
 
-        artist.innerText = AudioTracks.artist[indexMusic];
-        titleMusic.innerText = AudioTracks.title[indexMusic];
+        artist.innerText = musics[indexMusic].artist;
+        titleMusic.innerText = musics[indexMusic].title;
     }
     else{
         titleMusic.style.fontSize = '18px';
         artist.style.fontSize = '20px';
         
-        artist.innerText = AudioTracks.artist[indexMusic];
-        titleMusic.innerText = AudioTracks.title[indexMusic];
+        artist.innerText = musics[indexMusic].artist;
+        titleMusic.innerText = musics[indexMusic].title;
     }
-
-    
 }
 
 function PlayMusic(){ /* configura a inicialização da musica */
@@ -109,11 +169,11 @@ function NextMusic(){ /* alterna para a proxima musica */
 
     indexMusic+=1; /* incrementa o indice da música */
     
-    if(indexMusic > AudioTracks.src.length-1){ /* se o indice ultrapassar a ultima musica, retorna para a primeira musica */
+    if(indexMusic > musics[indexMusic].src.length-1){ /* se o indice ultrapassar a ultima musica, retorna para a primeira musica */
         indexMusic = 0;
     }
 
-    changeAttribute(srcMusic, 'src', AudioTracks.src[indexMusic]); /* atualiza o caminho da musica */
+    changeAttribute(srcMusic, 'src', musics[indexMusic].src); /* atualiza o caminho da musica */
     UpdateInfoMusic(); /* atualiza as informações da musica  */
 
     if(play_button.getAttribute('onclick') == 'PauseMusic()'){ /* se o botão pause estiver visível */
@@ -135,7 +195,7 @@ function BackMusic(){ /* alterana para a musica anterior */
         indexMusic = 0;
     }
 
-    changeAttribute(srcMusic, 'src', AudioTracks.src[indexMusic]);
+    changeAttribute(srcMusic, 'src', musics[indexMusic].src);
     UpdateInfoMusic();
 
     if(play_button.getAttribute('onclick') == 'PauseMusic()'){
