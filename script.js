@@ -1,5 +1,5 @@
 
-/* Por enquanto só é possível adicionar novas musicas manualmente, modificando o objeto 'AudioTracks' */
+/* Só é possível adicionar novas musicas manualmente, modificando o objeto 'AudioTracks' */
 /* Para adicionar novas musicas: */
 
 /* #1 Adicione o caminho da nova música na propriedade 'src' do objeto AudioTracks (ela deve estar na pasta 'Musics') */
