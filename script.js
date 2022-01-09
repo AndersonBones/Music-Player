@@ -108,6 +108,7 @@ onload = function(){ /* já atualiza a duração da musica ao carregar a página
 
 mp3.onloadeddata = function(){ 
     timingMusic.setAttribute('max',Math.round(mp3.duration)); /* configura o atributo 'max' com o valor de duração da musica atual */
+    duration_value.innerText = formatSecondsAsTime(Math.round(mp3.duration)); /* atualiza a duração da musica atual carregada */
 }
 
 function changePlayIcon(){ /* modifica os icones play e pause */
@@ -149,7 +150,6 @@ function PlayMusic(){ /* configura a inicialização da musica */
 setInterval(() => { /* a cada 1 segundo incrementa o value do timinigMusic com a posição atual da musica */
     timingMusic.value = Math.round(mp3.currentTime);
     current_Time_value.innerText = formatSecondsAsTime(Math.round(mp3.currentTime));
-    duration_value.innerText = formatSecondsAsTime(Math.round(mp3.duration));
 
     if(formatSecondsAsTime(Math.round(mp3.currentTime)) == formatSecondsAsTime(Math.round(mp3.duration))){
         NextMusic();
