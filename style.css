@@ -213,7 +213,9 @@ button i{
     
 }
 
-
+footer{
+    margin: auto;
+}
 
 footer p{
     font-family: Arial, Helvetica, sans-serif;
