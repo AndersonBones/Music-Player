@@ -71,7 +71,7 @@ var musics = [
         title:'Symphonia',
         artist:'Alok'
     },
-    
+
     {
         src:'./Musics/The Beautiful People.mp3',
         title:'The Beautiful People',
@@ -101,14 +101,13 @@ var musics = [
 
 
 UpdateInfoMusic();
-
-onload = function(){ /* já atualiza a duração da musica ao carregar a página */
+onload = function(){
     duration_value.innerText = formatSecondsAsTime(Math.round(mp3.duration));
 }
-
 mp3.onloadeddata = function(){ 
     timingMusic.setAttribute('max',Math.round(mp3.duration)); /* configura o atributo 'max' com o valor de duração da musica atual */
-    duration_value.innerText = formatSecondsAsTime(Math.round(mp3.duration)); /* atualiza a duração da musica atual carregada */
+    duration_value.innerText = formatSecondsAsTime(Math.round(mp3.duration));
+
 }
 
 function changePlayIcon(){ /* modifica os icones play e pause */
@@ -147,6 +146,7 @@ function PlayMusic(){ /* configura a inicialização da musica */
 }
 
 
+
 setInterval(() => { /* a cada 1 segundo incrementa o value do timinigMusic com a posição atual da musica */
     timingMusic.value = Math.round(mp3.currentTime);
     current_Time_value.innerText = formatSecondsAsTime(Math.round(mp3.currentTime));
@@ -171,7 +171,7 @@ function NextMusic(){ /* alterna para a proxima musica */
 
     indexMusic+=1; /* incrementa o indice da música */
     
-    if(indexMusic > musics[indexMusic].src.length-1){ /* se o indice ultrapassar a ultima musica, retorna para a primeira musica */
+    if(indexMusic > musics.length-1){ /* se o indice ultrapassar a ultima musica, retorna para a primeira musica */
         indexMusic = 0;
     }
 
