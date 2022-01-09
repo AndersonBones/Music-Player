@@ -28,7 +28,7 @@ body{
     align-items: center;
     justify-content: center;
     background-image: radial-gradient( circle farthest-corner at 24.1% 68.8%,  rgba(50,50,50,1) 0%, rgba(0,0,0,1) 99.4% );
-    width: 300px;
+    width: 270px;
     height: 500px;
 
     border-radius: 1rem;
