@@ -50,13 +50,13 @@ var musics = [
 
     {
         src:'./Musics/Indestructible.mp3',
-        title:'Indestructible.mp3',
+        title:'Indestructible',
         artist:'Disturbed'
     },
 
     {
         src:'./Musics/Refuse Resist.mp3',
-        title:'Refuse Resist.mp3',
+        title:'Refuse / Resist',
         artist:'Sepultura'
     },
 
