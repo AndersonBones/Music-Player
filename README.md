@@ -1,6 +1,5 @@
 #🎵 Music-Player 
-
-<p align="center">Reprodutor de música simples, desenvolvido em javascript.</p>
+<p>Reprodutor de música simples, desenvolvido em javascript.</p>
 
 ##⚠️ Status
 <p>Em construção 🚧</p>
@@ -16,4 +15,4 @@
 ##🖼️ ScreenShots 
 <img src="Assets/Animação.gif">
 
-##👽 <a href='https://andersonbones.github.io/Music-Player/'>DEMO</a>
+👽 <a href='https://andersonbones.github.io/Music-Player/'>DEMO</a>
