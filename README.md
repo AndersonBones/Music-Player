@@ -1,10 +1,10 @@
 #🎵 Music-Player 
 <p>Reprodutor de música simples, desenvolvido em javascript.</p>
 
-##● Status ⚠️
+## ● Status ⚠️
 <p>Em construção 🚧</p>
 
-##● Features ✅
+## ● Features ✅
 <p>Inicia a música</p>
 <p>Pausa a música</p>
 <p>Alterna para a próxima música</p>
@@ -12,7 +12,7 @@
 <p>Aumenta e Diminui o volume da música</p>
 <p>Mostra a Duração e a Posição da reprodução atual da música</p>
 
-##● ScreenShots 🖼️
+## ● ScreenShots 🖼️
 <img src="Assets/Animação.gif">
 
 ● <a href='https://andersonbones.github.io/Music-Player/'>DEMO 👽</a>
