@@ -5,7 +5,6 @@ var volume_icon = document.getElementsByClassName("bi bi-volume-down-fill")[0];
 
 var play_button = document.getElementsByClassName("play-button")[0];
 var timingMusic = document.getElementById("timing");
-var DurationMusic = 0;
 let indexMusic = 0;
 
 var srcMusic = document.getElementsByTagName('source')[0];
@@ -103,9 +102,12 @@ var musics = [
 
 UpdateInfoMusic();
 
+onload = function(){ /* já atualiza a duração da musica ao carregar a página */
+    duration_value.innerText = formatSecondsAsTime(Math.round(mp3.duration));
+}
+
 mp3.onloadeddata = function(){ 
-    DurationMusic = Math.round(mp3.duration); /* Armazena a duração da musica atual*/
-    timingMusic.setAttribute('max',DurationMusic); /* configura o atributo 'max' com o valor de duração da musica atual */
+    timingMusic.setAttribute('max',Math.round(mp3.duration)); /* configura o atributo 'max' com o valor de duração da musica atual */
 }
 
 function changePlayIcon(){ /* modifica os icones play e pause */
