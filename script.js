@@ -26,12 +26,6 @@ var musics = [
     },
 
     {
-        src:'./Musics/Black Is The Soul.mp3',
-        title:'Black Is The Soul',
-        artist:'KoRn'
-    },
-
-    {
         src:'./Musics/Blind.mp3',
         title:'Blind',
         artist:'KoRn'
@@ -77,6 +71,12 @@ var musics = [
         src:'./Musics/Symphonia.mp3',
         title:'Symphonia',
         artist:'Alok'
+    },
+    
+    {
+        src:'./Musics/The Beautiful People.mp3',
+        title:'The Beautiful People',
+        artist:'Marilyn Manson'
     },
 
     {
