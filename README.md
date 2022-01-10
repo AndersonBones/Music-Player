@@ -1,9 +1,6 @@
 # 🎵 Music-Player 
 <p>Reprodutor de música simples, desenvolvido em javascript.</p>
 
-## ● Status ⚠️
-<p>Em construção 🚧</p>
-
 ## ● Features ✅
 - [x] Inicia a música
 - [x] Pausa a música
